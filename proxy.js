@@ -223,7 +223,7 @@ function action_proxy(response, request, host){
       headers['X-Forwarded-For'] = request.connection.remoteAddress;
     }
   }
-  var proxy = http.createClient(action.port, action.host);
+  var proxy = http.request(action.port, action.host);
   var proxy_request = proxy.request(request.method, request.url, request.headers);
   
   //deal with errors, timeout, con refused, ...
